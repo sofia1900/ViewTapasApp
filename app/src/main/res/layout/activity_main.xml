@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.MainActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="0dp"
@@ -98,7 +98,8 @@
             app:layout_constraintStart_toEndOf="@id/label_media"
             app:layout_constraintTop_toTopOf="@id/label_media"
             app:layout_constraintBottom_toBottomOf="@id/label_media"
-            android:src="@drawable/baseline_star_24" />
+            android:src="@drawable/baseline_star_24"
+            android:layout_marginStart="10dp"/>
 
         <ImageView
             android:id="@+id/image_heart"
