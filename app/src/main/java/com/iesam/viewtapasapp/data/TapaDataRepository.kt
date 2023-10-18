@@ -18,7 +18,7 @@ class TapaDataRepository (private val xmlLocalDataSource: XmlLocalDataSource, pr
     override fun get(): Either<ErrorApp, Tapa> {
 
         val tapa = xmlLocalDataSource.getTapa()
-        if (tapa.isRight() && tapa.get().id != "") return tapa.get().right()
+        if (tapa.isRight() && tapa.get().id != null) return tapa.get().right()
         else{
             apiMockRemoteDataSource.getTapaMock().map {
                 save(it)

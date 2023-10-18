@@ -41,10 +41,12 @@ class MainActivity : AppCompatActivity() {
                 bindData(this)
             }
         }
+        viewModel.uiState.observe(this,observer)
     }
 
     private fun bindData(tapa : Tapa){
         binding.apply {
+            labelPosition.text = tapa.id
             labelTitle.text = tapa.title
             labelBar.text = tapa.bar
             labelPtos.text = tapa.points

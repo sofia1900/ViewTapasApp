@@ -26,11 +26,11 @@ class ActivityViewModel (private val getTapaUseCase: GetTapaUseCase) : ViewModel
     }
 
     private fun responseError(errorApp: ErrorApp){
-        _uiState.postValue(UiState(errorApp = errorApp))
+        _uiState.postValue(UiState(errorApp = errorApp, isLoading = false))
     }
 
     private fun responseSucess (tapa: Tapa){
-        _uiState.postValue(UiState(tapa = tapa))
+        _uiState.postValue(UiState(tapa = tapa, isLoading = false))
     }
 
     data class UiState(
