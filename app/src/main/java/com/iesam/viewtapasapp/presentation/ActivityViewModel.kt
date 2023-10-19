@@ -22,7 +22,7 @@ class ActivityViewModel (private val getTapaUseCase: GetTapaUseCase) : ViewModel
             //delay(5000)
             getTapaUseCase().fold(
                 {responseError(it)},
-                {responseSucess(it)}
+                {responseError(ErrorApp.UnknowError)}
             )
         }
     }
