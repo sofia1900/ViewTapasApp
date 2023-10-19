@@ -41,16 +41,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupObserver () {
         val observer = Observer<ActivityViewModel.UiState>{
-            it.tapa?.apply {
-                bindData(this)
-            }
-            it.errorApp?.let{
-                showError(it)
-            }
             if(it.isLoading){
                 showLoading()
             }else{
                 hideLoading()
+                if (it.errorApp != null){
+                    showError(it.errorApp)
+                } else {
+                    if (it.tapa != null) bindData(it.tapa)
+                }
             }
         }
         viewModel.uiState.observe(this,observer)
@@ -68,12 +67,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showError (error : ErrorApp){
-        binding.viewError.layoutError.visible()
         binding.layoutView.hide()
+        binding.viewError.layoutError.visible()
+
         when(error) {
             ErrorApp.UnknowError -> binding.viewError.labelMesaggeError.text =
                 getString(R.string.label_unknow_error)
         }
+    }
+
+    private fun hideError (){
+        binding.viewError.layoutError.hide()
     }
 
     private fun showLoading(){

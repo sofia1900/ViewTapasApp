@@ -22,13 +22,13 @@ class ActivityViewModel (private val getTapaUseCase: GetTapaUseCase) : ViewModel
             //delay(5000)
             getTapaUseCase().fold(
                 {responseError(it)},
-                {responseError(ErrorApp.UnknowError)}
+                {responseSucess(it)}
             )
         }
     }
 
     private fun responseError(errorApp: ErrorApp){
-        _uiState.postValue(UiState(errorApp = errorApp, isLoading = false))
+        _uiState.postValue(UiState(errorApp = errorApp))
     }
 
     private fun responseSucess (tapa: Tapa){
