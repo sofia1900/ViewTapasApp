@@ -65,4 +65,7 @@ dependencies {
     //Skeleton Layout
     implementation("com.faltenreich:skeletonlayout:5.0.0")
 
+    //CardView
+    implementation("androidx.cardview:cardview:1.0.0")
+
 }
