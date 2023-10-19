@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.iesam.viewtapasapp.R
+import com.iesam.viewtapasapp.app.ErrorApp
+import com.iesam.viewtapasapp.app.extensions.hide
 import com.iesam.viewtapasapp.app.extensions.setUrl
+import com.iesam.viewtapasapp.app.extensions.visible
 import com.iesam.viewtapasapp.app.serialization.GsonSerialization
 import com.iesam.viewtapasapp.data.TapaDataRepository
 import com.iesam.viewtapasapp.data.local.XmlLocalDataSource
@@ -41,6 +44,14 @@ class MainActivity : AppCompatActivity() {
             it.tapa?.apply {
                 bindData(this)
             }
+            it.errorApp?.let{
+                showError(it)
+            }
+            if(it.isLoading){
+                showLoading()
+            }else{
+                hideLoading()
+            }
         }
         viewModel.uiState.observe(this,observer)
     }
@@ -55,4 +66,23 @@ class MainActivity : AppCompatActivity() {
             labelMedia.text = tapa.media
         }
     }
+
+    private fun showError (error : ErrorApp){
+        binding.viewError.layoutError.visible()
+        binding.layoutView.hide()
+        when(error) {
+            ErrorApp.UnknowError -> binding.viewError.labelMesaggeError.text =
+                getString(R.string.label_unknow_error)
+        }
+    }
+
+    private fun showLoading(){
+        binding.skeletonLayout.showSkeleton()
+    }
+
+    private fun hideLoading(){
+        binding.skeletonLayout.showOriginal()
+    }
+
+
 }

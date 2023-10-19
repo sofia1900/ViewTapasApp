@@ -1,130 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.MainActivity" >
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/image_tapa"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
-        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-        android:src="@drawable/ic_launcher_background"/>
+    <com.faltenreich.skeletonlayout.SkeletonLayout
+        android:id="@+id/skeletonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/layout_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="20dp"
-        android:background="@color/white"
-        android:padding="10dp"
-        android:alpha="0.9">
+        <!-- Views to mask -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/label_position"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="1º"
-            android:textColor="@color/purple"
-            android:textSize="15sp"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_tapa"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                android:src="@drawable/ic_launcher_background"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_wine_bar_24" />
+            <LinearLayout
+                android:id="@+id/layout_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="20dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:alpha="0.9">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/label_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="1º"
+                    android:textColor="@color/purple"
+                    android:textSize="15sp"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_constraint1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="180dp"
-        android:background="@color/white">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_wine_bar_24" />
 
-        <TextView
-            android:id="@+id/label_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="Albóndiga de faisán en escabeche con caldo clarificado de gambón salvaje"
-            app:layout_constraintTop_toTopOf="@id/layout_constraint1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="20dp"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/label_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/label_title"
-            app:layout_constraintStart_toStartOf="@id/label_title"
-            android:layout_marginTop="10dp"
-            tools:text="Vermutería el Atrio"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_constraint1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="180dp"
+                android:background="@color/white">
 
-        <TextView
-            android:id="@+id/label_ptos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/label_bar"
-            app:layout_constraintStart_toStartOf="@id/label_title"
-            android:layout_marginTop="10dp"
-            tools:text="Total: 0 Ptos." />
+                <TextView
+                    android:id="@+id/label_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="Albóndiga de faisán en escabeche con caldo clarificado de gambón salvaje"
+                    app:layout_constraintTop_toTopOf="@id/layout_constraint1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/label_media"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/label_ptos"
-            app:layout_constraintStart_toEndOf="@id/label_ptos"
-            tools:text="Media: 0.0"
-            android:layout_marginStart="10dp"/>
+                <TextView
+                    android:id="@+id/label_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/label_title"
+                    app:layout_constraintStart_toStartOf="@id/label_title"
+                    android:layout_marginTop="10dp"
+                    tools:text="Vermutería el Atrio"/>
 
-        <ImageView
-            android:id="@+id/image_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/label_media"
-            app:layout_constraintTop_toTopOf="@id/label_media"
-            app:layout_constraintBottom_toBottomOf="@id/label_media"
-            android:src="@drawable/baseline_star_24"
-            android:layout_marginStart="10dp"/>
+                <TextView
+                    android:id="@+id/label_ptos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/label_bar"
+                    app:layout_constraintStart_toStartOf="@id/label_title"
+                    android:layout_marginTop="10dp"
+                    tools:text="Total: 0 Ptos." />
 
-        <ImageView
-            android:id="@+id/image_heart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/label_media"
-            app:layout_constraintBottom_toBottomOf="@id/label_media"
-            android:src="@drawable/baseline_heart_broken_24"
-            android:layout_marginEnd="20dp"/>
+                <TextView
+                    android:id="@+id/label_media"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/label_ptos"
+                    app:layout_constraintStart_toEndOf="@id/label_ptos"
+                    tools:text="Media: 0.0"
+                    android:layout_marginStart="10dp"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@id/image_heart"
-            app:layout_constraintTop_toTopOf="@id/image_heart"
-            android:src="@drawable/baseline_share_24"
-            android:layout_marginEnd="20dp"/>
+                <ImageView
+                    android:id="@+id/image_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/label_media"
+                    app:layout_constraintTop_toTopOf="@id/label_media"
+                    app:layout_constraintBottom_toBottomOf="@id/label_media"
+                    android:src="@drawable/baseline_star_24"
+                    android:layout_marginStart="10dp"/>
+
+                <ImageView
+                    android:id="@+id/image_heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_media"
+                    app:layout_constraintBottom_toBottomOf="@id/label_media"
+                    android:src="@drawable/baseline_heart_broken_24"
+                    android:layout_marginEnd="20dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/image_heart"
+                    app:layout_constraintTop_toTopOf="@id/image_heart"
+                    android:src="@drawable/baseline_share_24"
+                    android:layout_marginEnd="20dp"/>
 
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.faltenreich.skeletonlayout.SkeletonLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/view_error"
+        layout="@layout/view_error" />
+
+</FrameLayout>
+
