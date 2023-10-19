@@ -8,6 +8,7 @@ import com.iesam.viewtapasapp.app.ErrorApp
 import com.iesam.viewtapasapp.domain.GetTapaUseCase
 import com.iesam.viewtapasapp.domain.Tapa
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class ActivityViewModel (private val getTapaUseCase: GetTapaUseCase) : ViewModel() {
@@ -18,6 +19,7 @@ class ActivityViewModel (private val getTapaUseCase: GetTapaUseCase) : ViewModel
     fun loadTapa (){
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO){
+            //delay(5000)
             getTapaUseCase().fold(
                 {responseError(it)},
                 {responseSucess(it)}
