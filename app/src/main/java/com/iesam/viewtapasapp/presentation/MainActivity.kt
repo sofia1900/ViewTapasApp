@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.iesam.viewtapasapp.R
+import com.iesam.viewtapasapp.app.extensions.setUrl
 import com.iesam.viewtapasapp.app.serialization.GsonSerialization
 import com.iesam.viewtapasapp.data.TapaDataRepository
 import com.iesam.viewtapasapp.data.local.XmlLocalDataSource
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun bindData(tapa : Tapa){
         binding.apply {
+            imageTapa.setUrl("https://imag.bonviveur.com/como-hacer-albondigas-en-salsa-de-tomate.jpg")
             labelPosition.text = tapa.id
             labelTitle.text = tapa.title
             labelBar.text = tapa.bar
